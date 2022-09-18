@@ -2,7 +2,7 @@ import React from 'react'
 
 import Table from '../components/table/Table'
 
-import customerList from '../assets/JsonData/customers-list.json'
+import customerList from '../assets/JsonData/companies-list.json'
 
 const customerTableHead = [
     '',
@@ -30,11 +30,11 @@ const renderBody = (item, index) => (
     </tr>
 )
 
-const Customers = () => {
+const Companies = () => {
     return (
         <div>
             <h2 className="page-header">
-                Users
+                Companies
             </h2>
             <div className="row">
                 <div className="col-12">
@@ -55,4 +55,4 @@ const Customers = () => {
     )
 }
 
-export default Customers
+export default Companies;

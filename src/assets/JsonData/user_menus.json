@@ -4,10 +4,6 @@
         "content": "Profile"
     },
     {
-        "icon": "bx bx-wallet-alt",
-        "content": "My Wallet"
-    },
-    {
         "icon": "bx bx-cog",
         "content": "Settings"
     },

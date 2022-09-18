@@ -7,6 +7,7 @@ import Chart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
 import StatusCard from '../components/status-card/StatusCard'
+import StatusCard2 from "../components/status-card/StatusCard2";
 
 import Table from '../components/table/Table'
 
@@ -47,40 +48,47 @@ const chartOptions = {
 
 const topCustomers = {
     head: [
-        'User ID',
-        'KwH Spent',
-        'Status'
+        "User ID",
+        "KwH spent",
+        "date",
+        "Power status",
+        "     "
     ],
     body: [
         {
             id: "#OD1711",
-            date: "17 Jun 2021",
-            price: "$900",
-            status: "Normal usage"
+            date: "18.09.2021 08:33:05",
+            price: "1121",
+            status: "Deactivated",
+            button: "Activate"
         },
         {
             id: "#OD1712",
-            date: "1 Jun 2021",
-            price: "$400",
-            status: "Low usage"
+            date: "18.09.2021 08:31:55",
+            price: "985",
+            status: "Deactivated",
+            button: "Activate"
         },
         {
             id: "#OD1713",
-            date: "27 Jun 2021",
-            price: "$200",
-            status: "Over Limit"
+            date: "18.09.2021 08:32:23",
+            price: "942",
+            status: "Deactivated",
+            button: "Activate"
         },
         {
             id: "#OD1712",
-            date: "1 Jun 2021",
-            price: "$400",
-            status: "Low usage"
+            date: "18.09.2021 08:31:13",
+            price: "913",
+            status: "Deactivated",
+            button: "Activate"
         },
         {
             id: "#OD1713",
-            date: "27 Jun 2021",
-            price: "$200",
-            status: "High Usage"
+            date: "18.09.2021 08:30:57",
+            price: "892",
+            status: "Activated",
+            button: "Deactivate"
         }
     ]
 }
@@ -93,61 +101,70 @@ const renderCusomerBody = (item, index) => (
     <tr key={index}>
         <td>{item.id}</td>
         <td>{item.price}</td>
-        <td>{item.status}</td>
+        <td>{item.date}</td>
+        <td>
+            <Badge type={orderStatus[item.status]} content={item.status}/>
+        </td>
+        <td>
+            <button type="submit"><Badge type={orderStatus[item.button]} content={item.button}/></button>
+        </td>
     </tr>
 )
 
 const latestOrders = {
     header: [
         "User ID",
-        // "user",
         "KwH spent",
         "date",
-        "status"
+        "Power status",
+        "     "
     ],
     body: [
         {
             id: "#OD1711",
-            date: "17 Jun 2021",
-            price: "$900",
-            status: "Normal usage"
+            date: "18.09.2021 08:23:33",
+            price: "14730",
+            status: "Deactivated",
+            button: "Activate"
+        },
+        {
+            id: "#OD1712",
+            date: "18.09.2021 08:23:05",
+            price: "9832",
+            status: "Activated",
+            button: "Deactivate"
+        },
+        {
+            id: "#OD1713",
+            date: "18.09.2021 08:23:10",
+            price: "9566",
+            status: "Deactivated",
+            button: "Activate"
         },
         {
             id: "#OD1712",
             // user: "frank iva",
-            date: "1 Jun 2021",
-            price: "$400",
-            status: "Low usage"
+            date: "18.09.2021 08:23:20",
+            price: "9211",
+            status: "Activated",
+            button: "Deactivate"
         },
         {
             id: "#OD1713",
             // user: "anthony baker",
-            date: "27 Jun 2021",
-            price: "$200",
-            status: "Over Limit"
-        },
-        {
-            id: "#OD1712",
-            // user: "frank iva",
-            date: "1 Jun 2021",
-            price: "$400",
-            status: "Low usage"
-        },
-        {
-            id: "#OD1713",
-            // user: "anthony baker",
-            date: "27 Jun 2021",
-            price: "$200",
-            status: "High Usage"
+            date: "18.09.2021 08:22:15",
+            price: "8921",
+            status: "Activated",
+            button: "Deactivate"
         }
     ]
 }
 
 const orderStatus = {
-    "Normal usage": "primary",
-    "Over Limit": "warning",
-    "Low usage": "success",
-    "High Usage": "danger"
+    "Activate": "success",
+    "Deactivate": "danger",
+    "Activated": "primary",
+    "Deactivated": "primary"
 }
 
 const renderOrderHead = (item, index) => (
@@ -162,6 +179,9 @@ const renderOrderBody = (item, index) => (
         <td>
             <Badge type={orderStatus[item.status]} content={item.status}/>
         </td>
+        <td>
+            <button type="submit"><Badge type={orderStatus[item.button]} content={item.button}/></button>
+        </td>
     </tr>
 )
 
@@ -171,7 +191,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h2 className="page-header">Dashboard</h2>
+            <h2 className="page-header">Dashboard - Basel Canton</h2>
             <div className="row">
                 <div className="col-6">
                     <div className="row">
@@ -186,6 +206,18 @@ const Dashboard = () => {
                                 </div>
                             ))
                         }
+                        <div className="col-12" key='powerLimit'>
+                            <StatusCard2
+                                icon='bx bx-power-off'
+                                title='Set Power limit for OCTOBER'
+                            />
+                        </div>
+                        <div className="col-12" key='powerLimit'>
+                            <StatusCard2
+                                icon='bx bx-message-dots'
+                                title='Send Message to all Users'
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="col-6">
@@ -205,7 +237,7 @@ const Dashboard = () => {
                         />
                     </div>
                 </div>
-                <div className="col-4">
+                <div className="col-6">
                     <div className="card">
                         <div className="card__header">
                             <h3>Highest Spending Household</h3>
@@ -223,10 +255,10 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-8">
+                <div className="col-6">
                     <div className="card">
                         <div className="card__header">
-                            <h3>Highest Spending Buildings</h3>
+                            <h3>Highest Spending Companies</h3>
                         </div>
                         <div className="card__body">
                             <Table
