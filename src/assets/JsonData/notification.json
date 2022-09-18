@@ -1,0 +1,10 @@
+[
+    {
+        "icon": "bx bx-error",
+        "content": "There are 1632 Household that have used more than twice the limit!"
+    },
+    {
+        "icon": "bx bx-bulb",
+        "content": "The average consumption has increased!"
+    }
+]

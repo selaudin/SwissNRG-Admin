@@ -1,0 +1,17 @@
+[
+    {
+        "display_name": "Dashboard",
+        "route": "/dashboard",
+        "icon": "bx bxs-user-rectangle"
+    },
+    {
+        "display_name": "Companies",
+        "route": "/Companies",
+        "icon": "bx bxs-buildings"
+    },
+    {
+        "display_name": "Users",
+        "route": "/Users",
+        "icon": "bx bxs-user-account"
+    }
+]

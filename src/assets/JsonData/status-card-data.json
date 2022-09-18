@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "bx bx-bulb",
+        "count": "552",
+        "title": "Household September Avg. KwH"
+    },
+    {
+        "icon": "bx bxs-bulb",
+        "count": "1327",
+        "title": "Company September Avg. KwH"
+    },
+    {
+        "icon": "bx bx-receipt",
+        "count": "1,632",
+        "title": "Households over limit"
+    },
+    {
+        "icon": "bx bxs-receipt",
+        "count": "711",
+        "title": "Companies over limit"
+    }
+]
