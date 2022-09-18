@@ -8,6 +8,36 @@ Another feature is that, if the user misuses the energy, which means that they e
 
 With this web interface you can also write a message that can be sent as a notification on all smartphones, on scenarios where you have to notify users for an upcoming blackout, or any news!
 
+# How to install it?
+
+1. Firstly check if you have nodejs installed:
+```
+node -v
+```
+
+If you get the version then you can proceed with next instructions, otherwise you have to install it based on your OS environment.
+
+2. Open the terminal and on some directory, clone the project:
+
+```
+git clone https://github.com/selaudin/SwissNRG-Admin.git
+```
+
+3. Change the directory:
+```
+cd SwissNRG-Admin/
+```
+
+4. Install the required packages with npm
+```
+npm install
+```
+
+4. After a successful installation, you can run the website:
+```
+npm run
+```
+
 # Routes
 
 ### /
